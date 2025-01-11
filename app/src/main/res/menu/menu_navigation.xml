@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/nav_infoakun"
+        android:icon="@drawable/ic_info"
+        android:title="Informasi Akun"/>
+
+    <item
+        android:id="@+id/nav_pembelian"
+        android:icon="@drawable/ic_shopping"
+        android:title="Pembelian Saya"/>
+
+    <item
+        android:id="@+id/nav_lacak"
+        android:icon="@drawable/ic_shipping"
+        android:title="Lacak Pengiriman"/>
+
+    <item
+        android:id="@+id/nav_rekber"
+        android:icon="@drawable/ic_chat"
+        android:title="Diskusi Rekber"/>
+
+    <item
+        android:id="@+id/nav_logout"
+        android:icon="@drawable/baseline_logout_24"
+        android:title="Logout"
+        android:titleCondensed="#FF0000"/>
+</menu>

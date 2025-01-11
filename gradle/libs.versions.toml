@@ -1,0 +1,28 @@
+[versions]
+core-ktx = "1.12.0"
+androidx-appcompat = "1.6.1"
+material = "1.9.0"
+firebase-auth = "22.1.1"
+firebase-database = "20.3.2"
+agp = "8.5.2"
+kotlin = "1.9.0"
+google-gms-google-services = "4.4.2"
+activity = "1.9.3"
+constraintlayout = "2.2.0"
+play-services-analytics-impl = "18.2.0"
+
+[libraries]
+androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "core-ktx" }
+androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "androidx-appcompat" }
+material = { group = "com.google.android.material", name = "material", version.ref = "material" }
+firebase-auth = { group = "com.google.firebase", name = "firebase-auth", version.ref = "firebase-auth"}
+firebase-database = { group = "com.google.firebase", name = "firebase-database", version.ref = "firebase-database"}
+androidx-activity = { group = "androidx.activity", name = "activity", version.ref = "activity" }
+androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
+play-services-analytics-impl = { group = "com.google.android.gms", name = "play-services-analytics-impl", version.ref = "play-services-analytics-impl" }
+
+[plugins]
+android-application = { id = "com.android.application", version.ref = "agp" }
+jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+google-gms-google-services = { id = "com.google.gms.google-services", version.ref = "google-gms-google-services" }
+

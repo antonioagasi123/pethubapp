@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "226175987030",
+    "firebase_url": "https://pethub-6346f-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "pethub-6346f",
+    "storage_bucket": "pethub-6346f.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:226175987030:android:868a899ec9ccfc4461baf7",
+        "android_client_info": {
+          "package_name": "id.ac.binus.pethub2"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBf724EWwaOzzg-jdl2HjIOiBdWp6KkIfA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

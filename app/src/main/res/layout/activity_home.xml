@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawerLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".HomeActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+    <RelativeLayout
+        android:id="@+id/main_home"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    <ImageView
+        android:id="@+id/ivMenu"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_margin="25dp"
+        android:contentDescription="Menu Icon"
+        android:src="@drawable/ic_menu" />
+
+    <ImageView
+        android:id="@+id/iv_logoHome"
+        android:layout_width="250dp"
+        android:layout_height="100dp"
+        android:src="@drawable/pethub_logo"
+        android:layout_centerHorizontal="true" />
+
+    <ImageView
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:id="@+id/ivNotifications"
+        android:src="@drawable/ic_notification"
+        android:layout_alignParentEnd="true"
+        android:layout_margin="25dp"
+        android:contentDescription="Notification Icon"/>
+
+
+        <LinearLayout
+            android:id="@+id/searchBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/iv_logoHome"
+            android:layout_margin="16dp"
+            android:orientation="horizontal"
+            android:background="@drawable/searchbg"
+            android:padding="8dp">
+
+            <EditText
+                android:id="@+id/etSearch"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="Cari reptil disini..."
+                android:background="@null"
+                android:padding="8dp"
+                android:imeOptions="actionSearch"
+                android:inputType="text"/>
+
+            <ImageView
+                android:id="@+id/iv_searchIcon"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/ic_search"
+                android:contentDescription="Search Icon"
+                android:layout_marginStart="8dp"
+                android:clickable="true"/>
+        </LinearLayout>
+
+
+
+    <RelativeLayout
+        android:id="@+id/slide_content"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_below="@id/searchBar"
+        android:background="#F0F0F0"
+        android:layout_marginTop="16dp">
+        
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/viewPagerSlider"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"/>
+
+        <me.relex.circleindicator.CircleIndicator3
+            android:id="@+id/indicator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="16dp"/>
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/tvLelangHewan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Lelang Panas"
+        android:textStyle="bold"
+        android:textSize="18dp"
+        android:layout_below="@id/slide_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"
+        android:textColor="@color/bglogin"/>
+    
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tvLihatSemuaLelang"
+        android:text="Lihat Semua"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@id/slide_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"/>
+
+    <TextView
+        android:id="@+id/tvKategori"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Kategori"
+        android:textStyle="bold"
+        android:textSize="18dp"
+        android:layout_marginTop="16dp"
+        android:layout_below="@id/indicatorLelang"
+        android:layout_marginStart="16dp"
+        android:textColor="@color/bglogin"/>
+
+    <TextView
+        android:id="@+id/tvLihatSemuaKategori"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Lihat Semua"
+        android:layout_below="@id/rvLelangHewanHorizontal"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvLelangHewanHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_below="@id/tvLelangHewan"
+            android:clipToPadding="false"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:scrollbars="horizontal"
+            android:overScrollMode="never"/>
+
+
+        <me.relex.circleindicator.CircleIndicator3
+            android:id="@+id/indicatorLelang"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/rvLelangHewanHorizontal"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="8dp"/>
+
+    </RelativeLayout>
+    </ScrollView>
+        <com.google.android.material.navigation.NavigationView
+            android:id="@+id/navigationView"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="start"
+            app:menu="@menu/menu_navigation"
+            app:headerLayout="@layout/nav_header"/>
+
+</androidx.drawerlayout.widget.DrawerLayout>

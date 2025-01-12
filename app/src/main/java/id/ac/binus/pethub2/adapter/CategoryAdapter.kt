@@ -1,15 +1,13 @@
-package id.ac.binus.pethub2
+package id.ac.binus.pethub2.adapter
 
-import Subcategory
-import android.content.Intent
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import id.ac.binus.pethub2.data.Category
+import id.ac.binus.pethub2.R
 
 class CategoryAdapter(
     private val categories: List<Category>,

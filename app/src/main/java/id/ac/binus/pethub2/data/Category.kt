@@ -1,6 +1,4 @@
-package id.ac.binus.pethub2
-
-import Subcategory
+package id.ac.binus.pethub2.data
 
 data class Category(
     val name: String,

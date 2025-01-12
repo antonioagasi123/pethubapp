@@ -1,13 +1,14 @@
-package id.ac.binus.pethub2
+package id.ac.binus.pethub2.activity
 
-import AuctionProduct
-import AuctionProductAdapter
-import BuyProduct
-import BuyProductAdapter
+import id.ac.binus.pethub2.data.AuctionProduct
+import id.ac.binus.pethub2.adapter.AuctionProductAdapter
+import id.ac.binus.pethub2.data.BuyProduct
+import id.ac.binus.pethub2.adapter.BuyProductAdapter
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import id.ac.binus.pethub2.R
 
 class ProductGridActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

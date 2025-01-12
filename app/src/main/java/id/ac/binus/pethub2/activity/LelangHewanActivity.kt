@@ -1,7 +1,7 @@
-package id.ac.binus.pethub2
+package id.ac.binus.pethub2.activity
 
-import AuctionProduct
-import AuctionProductAdapter
+import id.ac.binus.pethub2.data.AuctionProduct
+import id.ac.binus.pethub2.adapter.AuctionProductAdapter
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.graphics.Rect
@@ -13,6 +13,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import id.ac.binus.pethub2.R
 
 class LelangHewanActivity : AppCompatActivity() {
     @SuppressLint("MissingInflatedId")

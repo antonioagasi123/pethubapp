@@ -1,9 +1,9 @@
-package id.ac.binus.pethub2
+package id.ac.binus.pethub2.activity
 
-import AuctionProduct
-import AuctionProductAdapter
-import BuyProduct
-import BuyProductAdapter
+import id.ac.binus.pethub2.data.AuctionProduct
+import id.ac.binus.pethub2.adapter.AuctionProductAdapter
+import id.ac.binus.pethub2.data.BuyProduct
+import id.ac.binus.pethub2.adapter.BuyProductAdapter
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
@@ -18,9 +18,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
 import me.relex.circleindicator.CircleIndicator3
-import id.ac.binus.pethub2.DataSource.buyProducts
-import id.ac.binus.pethub2.DataSource.auctionProducts
 import id.ac.binus.pethub2.R.*
+import id.ac.binus.pethub2.adapter.SlideAdapter
 
 
 class HomeActivity : AppCompatActivity() {
@@ -70,14 +69,14 @@ class HomeActivity : AppCompatActivity() {
                 name = "Leopard Gecko",
                 description = "Beautiful Leopard Gecko",
                 price = "Rp. 500.000",
-                imageResList = listOf(R.drawable.gecko1, R.drawable.gecko2)
+                imageResList = listOf(drawable.gecko1, drawable.gecko2)
             ),
             BuyProduct(
                 id = "2",
                 name = "Bearded Dragon",
                 description = "Amazing Bearded Dragon",
                 price = "Rp. 750.000",
-                imageResList = listOf(R.drawable.gecko3, R.drawable.gecko2)
+                imageResList = listOf(drawable.gecko3, drawable.gecko2)
             )
         )
 
@@ -89,7 +88,7 @@ class HomeActivity : AppCompatActivity() {
                 description = "Rare Ball Python",
                 price = "Rp. 1.000.000",
                 bidIncrement = "Rp. 50.000",
-                imageResList = listOf(R.drawable.gecko1, R.drawable.gecko2)
+                imageResList = listOf(drawable.gecko1, drawable.gecko2)
             ),
             AuctionProduct(
                 id = "2",
@@ -97,7 +96,7 @@ class HomeActivity : AppCompatActivity() {
                 description = "Bright Corn Snake",
                 price = "Rp. 900.000",
                 bidIncrement = "Rp. 40.000",
-                imageResList = listOf(R.drawable.gecko3, R.drawable.gecko2)
+                imageResList = listOf(drawable.gecko3, drawable.gecko2)
             )
         )
 

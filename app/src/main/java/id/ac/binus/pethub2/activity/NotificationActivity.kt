@@ -1,9 +1,10 @@
-package id.ac.binus.pethub2
+package id.ac.binus.pethub2.activity
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import id.ac.binus.pethub2.R
 
 class NotificationActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

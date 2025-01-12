@@ -1,10 +1,13 @@
+package id.ac.binus.pethub2.adapter
+
+import id.ac.binus.pethub2.data.AuctionProduct
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import id.ac.binus.pethub2.GridSpacingItemDecoration
+import id.ac.binus.pethub2.activity.GridSpacingItemDecoration
 import id.ac.binus.pethub2.R
 
 class LelangPagerAdapter(

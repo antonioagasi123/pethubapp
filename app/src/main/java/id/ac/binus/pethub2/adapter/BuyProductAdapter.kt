@@ -1,3 +1,6 @@
+package id.ac.binus.pethub2.adapter
+
+import id.ac.binus.pethub2.data.BuyProduct
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -5,7 +8,6 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
 import id.ac.binus.pethub2.R
-import id.ac.binus.pethub2.SlideAdapterBuy
 
 class BuyProductAdapter(private val products: List<BuyProduct>) :
     RecyclerView.Adapter<BuyProductAdapter.ProductViewHolder>() {

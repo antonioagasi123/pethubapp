@@ -1,4 +1,4 @@
-package id.ac.binus.pethub2
+package id.ac.binus.pethub2.activity
 
 import android.annotation.SuppressLint
 import android.content.Intent
@@ -10,6 +10,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
+import id.ac.binus.pethub2.R
 
 class RegisterActivity : AppCompatActivity() {
     @SuppressLint("MissingInflatedId")

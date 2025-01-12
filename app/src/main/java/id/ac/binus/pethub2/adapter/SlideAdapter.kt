@@ -1,4 +1,4 @@
-package id.ac.binus.pethub2
+package id.ac.binus.pethub2.adapter
 
 import android.util.Log
 import android.view.LayoutInflater
@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
+import id.ac.binus.pethub2.R
 
 class SlideAdapter(private val images: List<Int>) : RecyclerView.Adapter<SlideAdapter.SlideViewHolder>(){
     inner class SlideViewHolder(view: View) : RecyclerView.ViewHolder(view) {

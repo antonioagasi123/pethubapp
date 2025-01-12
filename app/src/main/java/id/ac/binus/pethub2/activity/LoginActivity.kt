@@ -1,22 +1,19 @@
-package id.ac.binus.pethub2
+package id.ac.binus.pethub2.activity
 
 import android.annotation.SuppressLint
 import android.content.Intent
-import android.media.Image
 import android.os.Bundle
-import android.util.Log
 import android.widget.Button
 import android.widget.EditText
-import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.google.firebase.Firebase
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
+import id.ac.binus.pethub2.R
 
 class LoginActivity : AppCompatActivity() {
     @SuppressLint("MissingInflatedId")

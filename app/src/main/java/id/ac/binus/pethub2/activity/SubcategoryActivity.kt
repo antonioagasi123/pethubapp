@@ -1,8 +1,8 @@
-package id.ac.binus.pethub2
+package id.ac.binus.pethub2.activity
 
-import AuctionProductAdapter
-import BuyProductAdapter
-import Subcategory
+import id.ac.binus.pethub2.adapter.AuctionProductAdapter
+import id.ac.binus.pethub2.adapter.BuyProductAdapter
+import id.ac.binus.pethub2.data.Subcategory
 import android.annotation.SuppressLint
 import android.os.Bundle
 import android.widget.TextView
@@ -10,6 +10,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import id.ac.binus.pethub2.R
 
 class SubcategoryActivity : AppCompatActivity() {
 
@@ -19,7 +20,7 @@ class SubcategoryActivity : AppCompatActivity() {
         setContentView(R.layout.activity_subcategory)
 
         // Ambil data dari Intent
-        val subcategoryName = intent.getStringExtra("SUBCATEGORY_NAME") ?: "Unknown Subcategory"
+        val subcategoryName = intent.getStringExtra("SUBCATEGORY_NAME") ?: "Unknown id.ac.binus.pethub2.data.Subcategory"
         val subcategory = intent.getSerializableExtra("SUBCATEGORY") as? Subcategory
 
         // Validasi null pada subkategori

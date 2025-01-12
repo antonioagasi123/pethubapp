@@ -1,3 +1,5 @@
+package id.ac.binus.pethub2.data
+
 import java.io.Serializable
 
 data class Subcategory(

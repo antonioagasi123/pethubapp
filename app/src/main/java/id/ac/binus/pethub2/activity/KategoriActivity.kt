@@ -1,19 +1,20 @@
-package id.ac.binus.pethub2
+package id.ac.binus.pethub2.activity
 
-import AuctionProduct
-import BuyProduct
-import Subcategory
+import id.ac.binus.pethub2.data.AuctionProduct
+import id.ac.binus.pethub2.data.BuyProduct
+import id.ac.binus.pethub2.data.Subcategory
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import id.ac.binus.pethub2.data.Category
+import id.ac.binus.pethub2.adapter.CategoryAdapter
+import id.ac.binus.pethub2.R
 
 class KategoriActivity : AppCompatActivity() {
     @SuppressLint("MissingInflatedId")

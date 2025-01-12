@@ -1,7 +1,5 @@
-package id.ac.binus.pethub2
+package id.ac.binus.pethub2.data
 
-import AuctionProduct
-import BuyProduct
 import id.ac.binus.pethub2.R
 
 object DataSource {

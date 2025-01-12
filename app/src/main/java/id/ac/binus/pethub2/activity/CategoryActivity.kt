@@ -1,4 +1,4 @@
-package id.ac.binus.pethub2
+package id.ac.binus.pethub2.activity
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -6,6 +6,7 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import id.ac.binus.pethub2.R
 
 class CategoryActivity : AppCompatActivity() {
     @SuppressLint("MissingInflatedId")

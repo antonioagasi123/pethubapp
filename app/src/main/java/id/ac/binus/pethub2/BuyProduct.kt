@@ -3,5 +3,5 @@ data class BuyProduct(
     val name: String,
     val description: String,
     val price: String,
-    val imageResId: Int
+    val imageResList: List<Int>
 )

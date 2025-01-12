@@ -4,5 +4,5 @@ data class AuctionProduct(
     val description: String,
     val price: String,
     val bidIncrement: String,
-    val imageResId: Int
+    val imageResList: List<Int>
 )

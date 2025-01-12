@@ -149,8 +149,8 @@
             android:layout_marginTop="16dp"
             android:layout_below="@id/tvLelangHewan"
             android:clipToPadding="false"
-            android:paddingStart="16dp"
-            android:paddingEnd="16dp"
+            android:paddingStart="8dp"
+            android:paddingEnd="2dp"
             android:scrollbars="horizontal"
             android:overScrollMode="never"/>
 
@@ -163,7 +163,30 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="8dp"/>
 
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvKategoriHewan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_below="@id/tvKategori"
+            android:clipToPadding="false"
+            android:paddingStart="8dp"
+            android:paddingEnd="2dp"
+            android:scrollbars="horizontal"
+            android:overScrollMode="never"/>
+
+
+        <me.relex.circleindicator.CircleIndicator3
+            android:id="@+id/indicatorKategori"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/rvKategoriHewan"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="8dp"/>
+
     </RelativeLayout>
+
+
     </ScrollView>
         <com.google.android.material.navigation.NavigationView
             android:id="@+id/navigationView"

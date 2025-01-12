@@ -7,7 +7,6 @@ import BuyProductAdapter
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
@@ -19,77 +18,103 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
 import me.relex.circleindicator.CircleIndicator3
+import id.ac.binus.pethub2.DataSource.buyProducts
+import id.ac.binus.pethub2.DataSource.auctionProducts
+import id.ac.binus.pethub2.R.*
+
 
 class HomeActivity : AppCompatActivity() {
 
     @SuppressLint("MissingInflatedId", "ResourceType")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_home)
+        setContentView(layout.activity_home)
 
         // Slider
         val sliderImages = listOf(
-            R.drawable.gecko1,
-            R.drawable.gecko2,
-            R.drawable.gecko3
+            drawable.gecko1,
+            drawable.gecko2,
+            drawable.gecko3
         )
-        val viewPagerSlider = findViewById<ViewPager2>(R.id.viewPagerSlider)
+        val viewPagerSlider = findViewById<ViewPager2>(id.viewPagerSlider)
         viewPagerSlider.adapter = SlideAdapter(sliderImages)
-        val indicator = findViewById<CircleIndicator3>(R.id.indicator)
+        val indicator = findViewById<CircleIndicator3>(id.indicator)
         indicator.setViewPager(viewPagerSlider)
 
         // Menu Navigation
-        val ivMenu = findViewById<ImageView>(R.id.ivMenu)
-        val drawerLayout = findViewById<DrawerLayout>(R.id.drawerLayout)
+        val ivMenu = findViewById<ImageView>(id.ivMenu)
+        val drawerLayout = findViewById<DrawerLayout>(id.drawerLayout)
         ivMenu.setOnClickListener {
             drawerLayout.openDrawer(GravityCompat.START)
         }
 
         // Notification
-        findViewById<ImageView>(R.id.ivNotifications).setOnClickListener {
+        findViewById<ImageView>(id.ivNotifications).setOnClickListener {
             startActivity(Intent(this, NotificationActivity::class.java))
         }
 
         // Lihat Semua Lelang
-        findViewById<TextView>(R.id.tvLihatSemuaLelang).setOnClickListener {
+        findViewById<TextView>(id.tvLihatSemuaLelang).setOnClickListener {
             startActivity(Intent(this, LelangHewanActivity::class.java))
         }
 
         // Lihat Semua Kategori
-        findViewById<TextView>(R.id.tvLihatSemuaKategori).setOnClickListener {
+        findViewById<TextView>(id.tvLihatSemuaKategori).setOnClickListener {
             startActivity(Intent(this, KategoriActivity::class.java))
         }
 
         // Data Produk
         val buyProducts = listOf(
-            BuyProduct("1", "Leopard Gecko", "Beautiful Leopard Gecko", "Rp. 500.000", R.drawable.gecko1),
-            BuyProduct("2", "Bearded Dragon", "Amazing Bearded Dragon", "Rp. 750.000", R.drawable.gecko2)
+            BuyProduct(
+                id = "1",
+                name = "Leopard Gecko",
+                description = "Beautiful Leopard Gecko",
+                price = "Rp. 500.000",
+                imageResList = listOf(R.drawable.gecko1, R.drawable.gecko2)
+            ),
+            BuyProduct(
+                id = "2",
+                name = "Bearded Dragon",
+                description = "Amazing Bearded Dragon",
+                price = "Rp. 750.000",
+                imageResList = listOf(R.drawable.gecko3, R.drawable.gecko2)
+            )
         )
+
 
         val auctionProducts = listOf(
-            AuctionProduct("1", "Ball Python", "Rare Ball Python", "Rp. 1.000.000", "Rp. 50.000", R.drawable.gecko3),
-            AuctionProduct("2", "Corn Snake", "Bright Corn Snake", "Rp. 900.000", "Rp. 40.000", R.drawable.gecko2)
+            AuctionProduct(
+                id = "1",
+                name = "Ball Python",
+                description = "Rare Ball Python",
+                price = "Rp. 1.000.000",
+                bidIncrement = "Rp. 50.000",
+                imageResList = listOf(R.drawable.gecko1, R.drawable.gecko2)
+            ),
+            AuctionProduct(
+                id = "2",
+                name = "Corn Snake",
+                description = "Bright Corn Snake",
+                price = "Rp. 900.000",
+                bidIncrement = "Rp. 40.000",
+                imageResList = listOf(R.drawable.gecko3, R.drawable.gecko2)
+            )
         )
 
+
         // RecyclerView Horizontal untuk Produk Lelang
-        val rvLelangHewan = findViewById<RecyclerView>(R.id.rvLelangHewanHorizontal)
+        val rvLelangHewan = findViewById<RecyclerView>(id.rvLelangHewanHorizontal)
         rvLelangHewan.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
         rvLelangHewan.adapter = AuctionProductAdapter(auctionProducts)
 
-        // RecyclerView Horizontal untuk Produk Jual Beli
-        val rvBuyProducts = findViewById<RecyclerView>(R.id.rvBuyProducts)
-        rvBuyProducts.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
-        rvBuyProducts.adapter = BuyProductAdapter(buyProducts)
-
-        // RecyclerView Horizontal untuk Produk Lelang (duplikat jika diperlukan)
-        val rvAuctionProducts = findViewById<RecyclerView>(R.id.rvAuctionProducts)
-        rvAuctionProducts.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
-        rvAuctionProducts.adapter = AuctionProductAdapter(auctionProducts)
+        val rvKategoriHewan = findViewById<RecyclerView>(id.rvKategoriHewan)
+        rvKategoriHewan.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
+        rvKategoriHewan.adapter = BuyProductAdapter(buyProducts)
 
 
 
         // Padding untuk Sistem Bar
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(id.main_home)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets

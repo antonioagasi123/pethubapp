@@ -6,6 +6,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -17,7 +18,7 @@ class CategoryAdapter(
 
     inner class CategoryViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val tvCategoryName: TextView = view.findViewById(R.id.tvCategoryName)
-        val rvSubcategories: RecyclerView = view.findViewById(R.id.rvSubcategories)
+        val ivCategoryIcon: ImageView = view.findViewById(R.id.ivCategoryIcon)
     }
 
     override fun onCreateViewHolder(
@@ -31,20 +32,9 @@ class CategoryAdapter(
     override fun onBindViewHolder(holder: CategoryViewHolder, position: Int) {
         val category = categories[position]
         holder.tvCategoryName.text = category.name
+        holder.ivCategoryIcon.setImageResource(category.iconResId)
 
-        holder.rvSubcategories.layoutManager =
-            LinearLayoutManager(holder.itemView.context, LinearLayoutManager.VERTICAL, false)
-
-        holder.rvSubcategories.adapter =
-            SubcategoryAdapter(category.subcategories) { subcategory: Subcategory ->
-                val context = holder.itemView.context
-                val intent = Intent(context, SubcategoryActivity::class.java)
-                intent.putExtra("SUBCATEGORY_NAME", subcategory.name)
-                intent.putExtra("SUBCATEGORY", subcategory)
-                context.startActivity(intent)
-            }
-
-        holder.tvCategoryName.setOnClickListener {
+        holder.itemView.setOnClickListener {
             onCategoryClick(category)
         }
     }

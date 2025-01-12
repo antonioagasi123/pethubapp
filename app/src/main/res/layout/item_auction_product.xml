@@ -1,16 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
+    android:layout_width="140dp"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:padding="8dp">
+    android:padding="4dp">
+
+    <RelativeLayout
+        android:id="@+id/slide_content_auction"
+        android:layout_width="140dp"
+        android:layout_height="180dp"
+        android:background="#F0F0F0"
+        android:layout_marginTop="4dp">
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/viewPagerSlider_auction"
+            android:layout_width="140dp"
+            android:layout_height="180dp"/>
+
+        <me.relex.circleindicator.CircleIndicator3
+            android:id="@+id/indicator_auction"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="16dp"/>
+    </RelativeLayout>
 
     <TextView
         android:id="@+id/tvProductName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Product Name"
+        android:layout_below="@id/slide_content_auction"
+        android:text="Nama Produk"
+        android:layout_marginTop="16dp"
         android:textSize="16sp"
         android:textStyle="bold" />
 
@@ -18,7 +40,8 @@
         android:id="@+id/tvProductPrice"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Price"
+        android:layout_below="@id/DescProduct_auction"
+        android:text="Harga Awal"
         android:textSize="14sp"
         android:layout_marginTop="4dp" />
 
@@ -26,7 +49,17 @@
         android:id="@+id/tvBidIncrement"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@id/tvProductPrice"
         android:text="Bid Increment"
         android:textSize="14sp"
         android:layout_marginTop="4dp" />
-</LinearLayout>
+
+    <TextView
+        android:id="@+id/DescProduct_auction"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Deskripsi Produk"
+        android:layout_below="@id/tvProductName"
+        android:textSize="14sp"
+        android:layout_marginTop="4dp"/>
+</RelativeLayout>

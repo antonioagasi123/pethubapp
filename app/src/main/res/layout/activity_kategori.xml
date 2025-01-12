@@ -1,13 +1,33 @@
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_kategori"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="16dp"
     tools:context=".KategoriActivity">
 
+    <TextView
+        android:id="@+id/tvKategoriHewan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="Kategori Hewan"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:layout_marginBottom="16dp"/>
+
+    <ImageView
+        android:id="@+id/iv_back_kategori"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:src="@drawable/back"
+        android:clickable="true"/>
+
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvKategori"
+        android:id="@+id/rvKategoriHewan"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="8dp" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:layout_below="@id/tvKategoriHewan"
+        android:layout_marginTop="8dp"/>
+
+</RelativeLayout>

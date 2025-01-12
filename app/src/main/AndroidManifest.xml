@@ -20,10 +20,10 @@
         </activity>
         <activity
             android:name=".SubcategoryActivity"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".CategoryActivity"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".LelangHewanActivity"
             android:exported="true" />

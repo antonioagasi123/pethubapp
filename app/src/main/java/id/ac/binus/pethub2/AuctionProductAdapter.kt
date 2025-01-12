@@ -1,11 +1,12 @@
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
+import androidx.viewpager2.widget.ViewPager2
 import id.ac.binus.pethub2.R
+import id.ac.binus.pethub2.SlideAdapter
+import me.relex.circleindicator.CircleIndicator3
 
 class AuctionProductAdapter(
     private val products: List<AuctionProduct>
@@ -15,7 +16,8 @@ class AuctionProductAdapter(
         val tvProductName: TextView = view.findViewById(R.id.tvProductName)
         val tvProductPrice: TextView = view.findViewById(R.id.tvProductPrice)
         val tvBidIncrement: TextView = view.findViewById(R.id.tvBidIncrement)
-        val ivProductImage: ImageView = view.findViewById(R.id.ivProductImage)
+        val viewPagerSlider: ViewPager2 = view.findViewById(R.id.viewPagerSlider_auction)
+        val indicator: CircleIndicator3 = view.findViewById(R.id.indicator_auction)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductViewHolder {
@@ -29,9 +31,11 @@ class AuctionProductAdapter(
         holder.tvProductName.text = product.name
         holder.tvProductPrice.text = product.price
         holder.tvBidIncrement.text = "Bid Increment: ${product.bidIncrement}"
-        Glide.with(holder.itemView.context)
-            .load(product.imageResId)
-            .into(holder.ivProductImage)
+
+        // Set slider images (assuming product has a list of image resources)
+        val sliderImages = product.imageResList// Ensure this field is a list of image resource IDs
+        holder.viewPagerSlider.adapter = SlideAdapterAuction(sliderImages)
+        holder.indicator.setViewPager(holder.viewPagerSlider)
     }
 
     override fun getItemCount(): Int = products.size

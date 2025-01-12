@@ -7,9 +7,11 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
@@ -19,11 +21,12 @@ class KategoriActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_kategori)
 
-        val rvKategori = findViewById<RecyclerView>(R.id.rvKategori)
+        val rvKategoriHewan = findViewById<RecyclerView>(R.id.rvKategoriHewan)
 
         val categories = listOf(
             Category(
                 name = "Kadal",
+                iconResId = R.drawable.kadal, // Ganti dengan ikon yang sesuai
                 subcategories = listOf(
                     Subcategory(
                         name = "Leopard Gecko",
@@ -31,6 +34,11 @@ class KategoriActivity : AppCompatActivity() {
                         auctionProducts = listOf()
                     )
                 )
+            ),
+            Category(
+                name = "Ular",
+                iconResId = R.drawable.ballpython,
+                subcategories = listOf()
             )
         )
 
@@ -40,14 +48,14 @@ class KategoriActivity : AppCompatActivity() {
                 name = "Leopard Gecko",
                 description = "Beautiful Leopard Gecko",
                 price = "Rp. 500.000",
-                imageResId = R.drawable.gecko1
+                imageResList = listOf(R.drawable.gecko1)
             ),
             BuyProduct(
                 id = "2",
                 name = "Bearded Dragon",
                 description = "Amazing Bearded Dragon",
                 price = "Rp. 750.000",
-                imageResId = R.drawable.gecko2
+                imageResList = listOf(R.drawable.gecko2)
             )
         )
 
@@ -58,7 +66,7 @@ class KategoriActivity : AppCompatActivity() {
                 description = "Rare Ball Python",
                 price = "Rp. 1.000.000",
                 bidIncrement = "Rp. 50.000",
-                imageResId = R.drawable.gecko3
+                imageResList = listOf(R.drawable.gecko3) // Gunakan list
             ),
             AuctionProduct(
                 id = "2",
@@ -66,18 +74,27 @@ class KategoriActivity : AppCompatActivity() {
                 description = "Bright Corn Snake",
                 price = "Rp. 900.000",
                 bidIncrement = "Rp. 40.000",
-                imageResId = R.drawable.gecko2
+                imageResList = listOf(R.drawable.gecko2) // Gunakan list
             )
         )
 
-        rvKategori.layoutManager = LinearLayoutManager(this)
-        rvKategori.adapter = CategoryAdapter(categories) { category ->
-            val intent = Intent(this, SubcategoryActivity::class.java)
-            intent.putExtra("CATEGORY_NAME", category.name)
-            intent.putExtra("BUY_PRODUCT_LIST", ArrayList(buyProducts)) // Kirim data jual beli
-            intent.putExtra("AUCTION_PRODUCT_LIST", ArrayList(auctionProducts)) // Kirim data lelang
-            startActivity(intent)
+        rvKategoriHewan.layoutManager = GridLayoutManager(this,3)
+        rvKategoriHewan.adapter = CategoryAdapter(categories) { category ->
+            val filteredBuyProducts = buyProducts.filter { it.name.contains(category.name, ignoreCase = true) }
+            val filteredAuctionProducts = auctionProducts.filter { it.name.contains(category.name, ignoreCase = true) }
+
+            if (category.subcategories.isEmpty()) {
+                Toast.makeText(this, "Tidak ada subkategori", Toast.LENGTH_SHORT).show()
+            } else {
+                val intent = Intent(this, SubcategoryActivity::class.java)
+                intent.putExtra("CATEGORY_NAME", category.name)
+                intent.putExtra("BUY_PRODUCT_LIST", ArrayList(filteredBuyProducts)) // Kirim data jual beli yang difilter
+                intent.putExtra("AUCTION_PRODUCT_LIST", ArrayList(filteredAuctionProducts)) // Kirim data lelang yang difilter
+                startActivity(intent)
+            }
         }
+
+
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main_kategori)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())

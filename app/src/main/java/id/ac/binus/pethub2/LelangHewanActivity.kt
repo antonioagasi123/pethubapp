@@ -21,7 +21,7 @@ class LelangHewanActivity : AppCompatActivity() {
         setContentView(R.layout.activity_lelang_hewan)
 
         // Tangani insets untuk sistem bar
-        val mainView = findViewById<View>(R.id.main)
+        val mainView = findViewById<View>(R.id.main_lelanghewan)
         ViewCompat.setOnApplyWindowInsetsListener(mainView) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
@@ -46,7 +46,7 @@ class LelangHewanActivity : AppCompatActivity() {
                 description = "Rare Ball Python",
                 price = "Rp. 150.000",
                 bidIncrement = "Rp. 10.000",
-                imageResId = R.drawable.gecko1
+                imageResList = listOf(R.drawable.gecko1)
             ),
             AuctionProduct(
                 id = "2",
@@ -54,7 +54,7 @@ class LelangHewanActivity : AppCompatActivity() {
                 description = "Beautiful Leopard Gecko",
                 price = "Rp. 100.000",
                 bidIncrement = "Rp. 10.000",
-                imageResId = R.drawable.gecko2
+                imageResList = listOf(R.drawable.gecko2)
             ),
             AuctionProduct(
                 id = "3",
@@ -62,21 +62,22 @@ class LelangHewanActivity : AppCompatActivity() {
                 description = "Amazing Hognose Snake",
                 price = "Rp. 170.000",
                 bidIncrement = "Rp. 20.000",
-                imageResId = R.drawable.gecko3
+                imageResList = listOf(R.drawable.gecko3)
             )
         )
 
         // Urutkan produk berdasarkan bid increment (konversi ke angka)
         val sortedAuctionProducts = auctionProducts.sortedByDescending {
-            it.bidIncrement.replace("Rp.", "").replace(".", "").toInt()
+            it.bidIncrement.replace("Rp.", "").replace(".", "").trim().toInt()
         }
+
 
         // Set up RecyclerView
         rvLelangHewan.layoutManager = GridLayoutManager(this, 2)
         rvLelangHewan.adapter = AuctionProductAdapter(sortedAuctionProducts)
 
         // Tambahkan dekorasi untuk jarak antar item
-        val spacingInPixels = resources.getDimensionPixelSize(R.dimen.grid_spacing)
+        val spacingInPixels = resources.getDimensionPixelSize(R.dimen.grid_spacing_small)
         rvLelangHewan.addItemDecoration(GridSpacingItemDecoration(2, spacingInPixels))
     }
 }
@@ -93,12 +94,12 @@ class GridSpacingItemDecoration(private val spanCount: Int, private val spacing:
         val position = parent.getChildAdapterPosition(view)
         val column = position % spanCount
 
-        outRect.left = spacing - column * spacing / spanCount
-        outRect.right = (column + 1) * spacing / spanCount
+        outRect.left = spacing / 2
+        outRect.right = spacing / 2
 
         if (position < spanCount) {
-            outRect.top = spacing
+            outRect.top = spacing / 2
         }
-        outRect.bottom = spacing
+        outRect.bottom = spacing / 2
     }
 }
